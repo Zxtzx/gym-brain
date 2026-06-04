@@ -1,10 +1,35 @@
-def get_num(question):
+def get_again():
+    while True:
+        again = input("Would you like to calculate another exercise? (Yes/No): ").lower()
+
+        if again == "yes":
+            return True
+        elif again == "no":
+            return False
+        else:
+            print("Please enter a Yes or No!")
+
+def get_float(question):
     while True:
         try:
             number = float(input(question))
-            return number
+            if number > 0:
+                return number
+            else:
+                print("Please enter a positive number!")
         except ValueError:
-            print("Please enter a valid number")
+            print("Please enter a valid number!")
+
+def get_int(question):
+    while True:
+        try:
+            number = int(input(question))
+            if number > 0:
+                return number
+            else:
+                print("Please enter a positive number!")
+        except ValueError:
+            print("Please enter a whole number")
 
 def get_exercise():
     while True:
@@ -22,13 +47,13 @@ def get_calc(weight, reps):
     return epely
 while True:
     exercise = get_exercise()
-    sets = int(get_num(f"How many sets did you do for {exercise}?: "))
+    sets = get_int(f"How many sets did you do for {exercise}?: ")
     volume = 0
     best = 0
     for i in range(sets):
         print(f"Set {i + 1}")
-        weight = get_num(f"What weight did you do for set {i + 1} of {exercise}?: ")
-        reps = get_num(f"How many reps of {weight:.0f} lbs did you do for Set {i + 1} of {exercise}?: ")
+        weight = get_float(f"What weight did you do for set {i + 1} of {exercise}?: ")
+        reps = get_int(f"How many reps of {weight:.0f} lbs did you do for Set {i + 1} of {exercise}?: ")
         
         epely = get_calc(weight, reps)
         if epely > best:
@@ -40,27 +65,8 @@ while True:
 
     print(f"Your estimated 1RM for {exercise} is {best:.0f}!")
     print(f"Your total volume for {sets} sets of {exercise} is {volume:.0f} lbs!")
-            
-    again = input("Would you like to calculate another exercise? (Yes/No): ").lower()
-    if again == "no":
+    
+    again = get_again()
+    if not again:
         print("Thank you")
-        quit()
-    elif again == "yes":
-        continue
-    else:
-        print("Please enter either Yes or No")
-        
-        
-                
-
-        
-        
-
-
-
-
-
-
-
-
-        
+        quit()      
