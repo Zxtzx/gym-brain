@@ -39,8 +39,8 @@ def get_exercise():
     while True:
             exercise = input("Please enter what exercise you have done: ")
 
-            if exercise.isalpha():
-                return exercise
+            if exercise.replace(" ", "").isalpha():
+                return exercise.title()
                 
             else:
                print("Please enter only letters!")
@@ -73,9 +73,12 @@ while True:
 
         set_volume = calculate_setvol(weight, reps)
         volume = set_volume + volume
-
+    print()
+    print("=" * 30)
+    print(f"Exercise: {exercise}")
     print(f"Your estimated 1RM for {exercise} is {best_1rm:.0f}!")
     print(f"Your total volume for {sets} sets of {exercise} is {volume:.0f} lbs!")
+    print("=" * 30)
     
     again = get_again()
     if not again:
