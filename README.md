@@ -4,7 +4,7 @@ A beginner Python fitness analytics project that calculates workout volume and e
 
 ## Current Version
 
-v0.2.5 — improved beginner baseline
+v0.3 — Clean Core
 
 ## Current Features
 
@@ -14,8 +14,11 @@ v0.2.5 — improved beginner baseline
 - Calculate estimated 1RM using the Epley formula
 - Calculate total workout volume
 - Track best estimated 1RM across all sets
+- Show which set produced the best estimated 1RM
 - Restart for another exercise
 - Validate inputs for sets, reps, and weight
+- Split input validation into `validators.py`
+- Split workout math into `calculations.py`
 
 ## What I Am Learning
 
@@ -25,16 +28,18 @@ v0.2.5 — improved beginner baseline
 - Basic fitness calculations
 - Git and GitHub workflow
 - Writing cleaner, more readable code
+- Importing functions from other Python files
+- Organizing a project into modules
 
 ## Next Milestone
 
-v0.3 — Clean Core
+v0.4 — Workout Saving
 
 Planned changes:
 
-- Split the project into `main.py`, `validators.py`, and `calculations.py`
-- Improve function and variable names
-- Keep the code simple and explainable
+- Save workout summaries to a CSV file
+- Add timestamps for each workout
+- Keep the project simple and explainable
 
 ## Future Features
 
